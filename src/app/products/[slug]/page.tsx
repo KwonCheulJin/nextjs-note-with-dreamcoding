@@ -9,9 +9,9 @@ type Props = {
   };
 };
 
-export function generateMetadata({ params }: Props) {
+export function generateMetadata({ params: { slug } }: Props) {
   return {
-    title: `제품의 이름: ${params.slug}`,
+    title: `제품의 이름: ${slug}`,
   };
 }
 

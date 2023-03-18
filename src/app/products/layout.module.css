@@ -1,0 +1,13 @@
+.nav {
+  padding: 16px;
+  border: 1px solid #af27a9;
+  margin: 8px 0;
+}
+
+.nav a {
+  padding: 0px 8px;
+}
+
+.product {
+  padding: 16px;
+}

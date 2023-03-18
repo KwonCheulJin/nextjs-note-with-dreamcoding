@@ -5,6 +5,14 @@ type Props = {
     slug: string;
   };
 };
-export default function PantsPage({ params }: Props) {
+
+export default function ItemPage({ params }: Props) {
   return <h1>{params.slug} 상세 페이지!</h1>;
+}
+
+export function generateStaticParams() {
+  const products = ['pants', 'skirt'];
+  return products.map(product => ({
+    slug: product,
+  }));
 }

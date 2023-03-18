@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import React from 'react';
 
 type Props = {
@@ -7,6 +8,9 @@ type Props = {
 };
 
 export default function ItemPage({ params }: Props) {
+  if (params.slug === 'nothing') {
+    notFound();
+  }
   return <h1>{params.slug} 상세 페이지!</h1>;
 }
 

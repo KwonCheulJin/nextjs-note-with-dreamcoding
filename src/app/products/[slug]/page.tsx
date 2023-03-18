@@ -1,3 +1,5 @@
+import { getProducts } from '@/service/products';
+import { getProduct } from '@/service/products';
 import { notFound } from 'next/navigation';
 import React from 'react';
 
@@ -13,15 +15,17 @@ export function generateMetadata({ params }: Props) {
   };
 }
 
-export default function ItemPage({ params }: Props) {
-  if (params.slug === 'nothing') {
+export default function ItemPage({ params: { slug } }: Props) {
+  const product = getProduct(slug);
+
+  if (!product) {
     notFound();
   }
-  return <h1>{params.slug} 상세 페이지!</h1>;
+  return <h1>{product} 상세 페이지!</h1>;
 }
 
 export function generateStaticParams() {
-  const products = ['pants', 'skirt'];
+  const products = getProducts();
   return products.map(product => ({
     slug: product,
   }));

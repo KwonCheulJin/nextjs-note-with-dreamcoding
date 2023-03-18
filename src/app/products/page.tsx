@@ -1,9 +1,9 @@
+import { getProducts } from '@/service/products';
 import Link from 'next/link';
 import React from 'react';
 
-const products = ['shirt', 'pants', 'skirt', 'shoes'];
-
 export default function ProductsPage() {
+  const products = getProducts();
   const productList = products.map(product => (
     <li key={product}>
       <Link href={`/products/${product}`}>{product}</Link>

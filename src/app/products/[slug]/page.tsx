@@ -15,18 +15,18 @@ export function generateMetadata({ params }: Props) {
   };
 }
 
-export default function ItemPage({ params: { slug } }: Props) {
-  const product = getProduct(slug);
+export default async function ProductPage({ params: { slug } }: Props) {
+  const product = await getProduct(slug);
 
   if (!product) {
     notFound();
   }
-  return <h1>{product} 상세 페이지!</h1>;
+  return <h1>{product.name} 상세 페이지!</h1>;
 }
 
-export function generateStaticParams() {
-  const products = getProducts();
+export async function generateStaticParams() {
+  const products = await getProducts();
   return products.map(product => ({
-    slug: product,
+    slug: product.id,
   }));
 }

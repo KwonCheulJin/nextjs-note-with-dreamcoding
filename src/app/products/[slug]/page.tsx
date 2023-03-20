@@ -1,5 +1,6 @@
 import { getProducts } from '@/service/products';
 import { getProduct } from '@/service/products';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import React from 'react';
 
@@ -23,7 +24,17 @@ export default async function ProductPage({ params: { slug } }: Props) {
   if (!product) {
     notFound();
   }
-  return <h1>{product.name} 상세 페이지!</h1>;
+  return (
+    <>
+      <h1>{product.name} 상세 페이지!</h1>
+      <Image
+        src={`/images/${product.image}`}
+        alt={product.image}
+        width={300}
+        height={300}
+      />
+    </>
+  );
 }
 
 export async function generateStaticParams() {

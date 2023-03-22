@@ -6,7 +6,7 @@ export default function Home() {
   console.log('🚀 ~ file: page.tsx:3 ~ os:', os.hostname());
   return (
     <>
-      <h1>홈페이지다! 버전 2</h1>
+      <h1>홈페이지다! 버전 3</h1>
       <Counter />
       <Image
         src="https://images.unsplash.com/photo-1441986300917-64674bd600d8"
